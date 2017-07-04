@@ -1,0 +1,29 @@
+CREATE table OilPipeLineAcc2016 (  ReportNumber INTEGER,  SupplementalNumber INTEGER,  AccidentYear INTEGER,  AccidentDateTime VARCHAR(420),  OperatorID INTEGER,  OperatorName VARCHAR(420),  PipelineFacilityName VARCHAR(420),  PipelineLocation VARCHAR(420),  PipelineType VARCHAR(420),  LiquidType VARCHAR(420),  LiquidSubtype VARCHAR(420),  LiquidName VARCHAR(420),  AccidentCity VARCHAR(420),  AccidentCounty VARCHAR(420),  AccidentState VARCHAR(420),  AccidentLatitude double ,  AccidentLongitude double ,  CauseCategory VARCHAR(420),  CauseSubcategory VARCHAR(420),  UnintentionalRelease double ,  IntentionalRelease VARCHAR(420),  LiquidRecovery double ,  NetLoss double ,  LiquidIgnition VARCHAR(420),  LiquidExplosion VARCHAR(420),  PipelineShutdown VARCHAR(420),  ShutdownDateTime VARCHAR(420),  RestartDateTime VARCHAR(420),  PublicEvacuations INTEGER,  OperatorEmployeeInjuries VARCHAR(420),  OperatorContractorInjuries VARCHAR(420),  EmergencyResponderInjuries VARCHAR(420),  OtherInjuries VARCHAR(420),  PublicInjuries VARCHAR(420),  AllInjuries VARCHAR(420),  OperatorEmployeeFatalities VARCHAR(420),  OperatorContractorFatalities VARCHAR(420),  EmergencyResponderFatalities VARCHAR(420),  OtherFatalities VARCHAR(420),  PublicFatalities VARCHAR(420), AllFatalities VARCHAR(420),  PropertyDamageCosts INTEGER,  LostCommodityCosts INTEGER,  PublicPrivatePropertyDamageCosts INTEGER,  EmergencyResponseCosts INTEGER,  EnvironmentalRemediationCosts INTEGER,  OtherCosts INTEGER,  AllCosts INTEGER) ;
+
+
+LOAD DATA LOCAL INFILE '/home/hduser/Downloads/databaseOilAccPipeLine2016.csv' INTO Table OilPipeLineAcc2016 FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
+
+
+CREATE TABLE `OilAccByTimeOfDay` (
+  `TimeOfDay` varchar(20) DEFAULT NULL,
+  `AccCount` int(11) DEFAULT NULL
+);
+
+CREATE TABLE `OilAccTopFiveCauseCategory` (
+  `CauseCategory` varchar(200) DEFAULT NULL,
+  `AccCount` int(11) DEFAULT NULL
+);
+
+CREATE TABLE `USAccidentDataByMonth` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `StateCode` varchar(5) NOT NULL,
+  `YearMonth` int(11) NOT NULL,
+  `pcp` double NOT NULL,
+  `tavg` double NOT NULL,
+  `tmax` double NOT NULL,
+  `tmin` double NOT NULL,
+  `AccidentCount` int(11) DEFAULT '0',
+  PRIMARY KEY (`ID`)
+);
+
+

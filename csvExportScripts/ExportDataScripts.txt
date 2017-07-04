@@ -1,0 +1,22 @@
+SELECT * FROM Test.USAccidentDataByMonth
+WHERE AccidentCount>0
+INTO OUTFILE '/home/hduser/Downloads/WeatherandAccidentDataCombined_2016.csv'
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
+
+SELECT * FROM Test.OilAccByTimeOfDay
+INTO OUTFILE '/home/hduser/Downloads/OilAccByTimeOfDay.csv'
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
+
+
+SELECT * FROM Test.OilAccTopFiveCauseCategory
+INTO OUTFILE '/home/hduser/Downloads/OilAccTopFiveCauseCategory.csv'
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
